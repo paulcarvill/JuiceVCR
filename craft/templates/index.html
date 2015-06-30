@@ -1,0 +1,74 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{# redirect 'news' #}
+
+{% extends "_layout" %}
+
+{% block content %}
+	<!-- <h1>{{ entry.title }}</h1>
+
+	{{ entry.body }}
+
+	<h2>Recent News</h2>
+	<ul>
+		{% for entry in craft.entries.section('news').limit(5).find() %}
+			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+		{% endfor %}
+	</ul> -->
+	homepage single:<br /><br />
+	title: {{ entry.title }}
+	<br />
+	body: {{ entry.body }}
+	<br />
+	<br />
+	<br />
+	<ul>
+	{% for entry in craft.entries.section('news').limit(null).find() %}
+		<li><ul>
+			<li>tracktitle: {{ entry.trackTitle }}</li>
+			<li>album: {{ entry.album }}</li>
+			<li>artist: {{ entry.artist }}</li>
+			<li>label: {{ entry.label }}</li>
+			<li>publisher: {{ entry.publisher }}</li>
+			<li>videourl: {{ entry.videoUrl }}</li>
+			<li>body: {{ entry.body }}</li>
+			<li>tags:
+				<ul>
+					{% for tag in entry.tags %}
+						<li>{{tag}}</li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li>fb img: {% for asset in entry.fbImage %}
+		    	{{ asset.url }}
+				{% endfor %}
+			</li>
+			<li>twitter img: {% for asset in entry.twitterImage %}
+		    	{{ asset.url }}
+				{% endfor %}
+			</li>
+		</ul></li>
+	{% endfor %}
+	</ul>
+	<br />
+{% endblock %}
+
+
+
