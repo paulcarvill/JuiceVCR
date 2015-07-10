@@ -14,48 +14,17 @@
 <head>
 	<meta charset="utf-8" />
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
-	<link rel="home" href="{{ siteUrl }}" />
-
-	<style type="text/css">
-	</style>
-
-	<!-- link to output from grunt build -->
-	<script src="source.min.js" ></script>
-	<link rel="stylesheet" href="styles.min.css" />
-	<!-- end of grunt build output links -->
-
-	{# Enable livereload if we're developing locally #}
-    {% if craft.config.env == "local" %}
-      {% spaceless %}
-        <script type="text/javascript">//<![CDATA[
-          document.write('<script src="' + (location.protocol || 'http:') + '//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
-        //]]></script>
-      {% endspaceless %}
-    {% endif %}
+	<link rel="stylesheet" href="juicevcr.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
 <body>
 	<div id="container">
-		<header id="header">
-			site name: <a href="{{ siteUrl }}">{{ siteName }}</a>
-
-			<!-- <nav>
-				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
-				</ul>
-			</nav> -->
-		</header>
-
 		<main id="content" role="main">
 			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 			{% endblock %}
 		</main>
-
-		<footer id="footer">
-			<!-- Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://buildwithcraft.com">Craft</a> -->
-		</footer>
 	</div>
+
 </body>
 </html>

@@ -176,7 +176,30 @@
 		{% endfor %}
 		];
 		</script>
-		<script src="juicevcr.min.js"></script>
+		<!-- build:js juicevcr.min.js -->
+		<script src="vendor/jquery.min.js"></script>
+		<script src="vendor/underscore-min.js"></script>
+		<script src="vendor/backbone-min.js"></script>
+		<script src="vendor/modernizr.min.js"></script>
+		<script src="vendor/video.js"></script>
+		<script src="vjs.vimeo.js"></script>
+		<script src="vjs.youtube.js"></script>
+		<script src="models/video.js"></script>
+		<script src="models/playlist.js"></script>
+		<script src="routers/router.js"></script>
+		<script src="views/videos/aboutbtn.js"></script>
+		<script src="views/videos/contactbtn.js"></script>
+		<script src="views/videos/nextbtn.js"></script>
+		<script src="views/videos/prevbtn.js"></script>
+		<script src="views/videos/randbtn.js"></script>
+		<script src="views/videos/infobtn.js"></script>
+		<script src="views/videos/playbtn.js"></script>
+		<script src="views/videos/infopane.js"></script>
+		<script src="views/videos/contact.js"></script>
+		<script src="views/videos/about.js"></script>
+		<script src="views/videos/heading.js"></script>
+		<script src="views/videos/app.js"></script>
+		<!-- /build -->
 
 		<script type="text/template" id="video-info-template">
 			<p>NOW PLAYING</p>

@@ -11,9 +11,9 @@ module.exports = ->
     "public/styles.css":
 
       # Point this to where your `index.css` file is location.
-      src: "dev/app/styles/index.css"
+      src: "dev/app/assets/styles/styles.css"
 
-      prefix: "dev/app/styles/"
+      # prefix: "dev/app/assets/styles/"
 
       # The relative path to use for the @imports.
       #paths: ["dev/app/styles"]
