@@ -59,10 +59,10 @@
 		</p>
 
 		<p id="play-btn">
-			<svg id="play" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+			<svg id="play" style="display: none;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 				<path d="M8,5v14l11-7L8,5z"/>
 			</svg>
-			<svg id="pause" style="display: none;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<svg id="pause" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path d="M6,19h4V5H6V19z M14,5v14h4V5H14z"/>
 </svg>
@@ -135,7 +135,7 @@
 		</div>
 
 		<div id="btns">
-			<a id="about-btn" href="#">ABOUT</a> / <a id="contact-btn" href="#">CONTACT</a>
+			<a id="about-btn" href="#">ABOUT</a>&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;<a id="contact-btn" href="#">CONTACT</a>
 		</div>
 
 		<div id="box1"></div>
@@ -180,9 +180,13 @@
 
 		<script type="text/template" id="video-info-template">
 			<p>NOW PLAYING</p>
-			<p><%= tracktitle %> / <%= artist %></p>
-			<p><%= album %></p>
-			<p><%= label %> / <%= publisher %></p>
+			<p><% if (tracktitle !== "") { %><%= tracktitle %><% } %>
+			<% if (tracktitle !== "" && artist !== "") { %> / <% } %>
+			<% if (artist !== "") { %><%= artist %><% } %></p>
+
+			<p><% if (album !== "") { %><%= album %><% } %></p>
+			
+			<p><% if (label !== "") { %><%= label %><% }%><% if (label !== "" && publisher !== "") { %> / <% }%><% if (publisher !== "") { %><%= publisher %><% }%></p>
 		</script>
 		<script type="text/javascript">
 		$(function() {

@@ -1,10 +1,47 @@
-.video-js { background-color: transparent; }
+@font-face {
+	font-family: 'Atlas Grotesk Web';
+	src: url('AtlasGrotesk-Black-Web.eot');
+	src: url('AtlasGrotesk-Black-Web.eot?#iefix') format('embedded-opentype'),
+	url('AtlasGrotesk-Black-Web.woff') format('woff'),
+	url('AtlasGrotesk-Black-Web.ttf') format('truetype'),
+	url('AtlasGrotesk-Black-Web.svg#AtlasGrotesk-Black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-stretch: normal;
+}
+
+@font-face {
+	font-family: 'Atlas Typewriter Web';
+	src: url('AtlasTypewriter-Regular-Web.eot');
+	src: url('AtlasTypewriter-Regular-Web.eot?#iefix') format('embedded-opentype'),
+	url('AtlasTypewriter-Regular-Web.woff') format('woff'),
+	url('AtlasTypewriter-Regular-Web.ttf') format('truetype'),
+	url('AtlasTypewriter-Regular-Web.svg#AtlasTypewriter-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+}
 
 html, body, h1, h2, p, div {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
 	font-family: Helvetica, arial, sans-serif;
+}
+
+#info {
+	height: 6em;
+	line-height: 1.5em;
+}
+
+#info p {
+	font-family: 'Atlas Typewriter Web', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+
+#info p:first-of-type {
+	font-family: 'Atlas Grotesk Web', Helvetica, Arial, sans-serif;
+	line-height: 1.5em;
 }
 
 body {
@@ -25,8 +62,8 @@ iframe {
  {
 	position: absolute;
 	top: 85px;
-	left: 30px;
-	bottom: 77px;
+	left: 24px;
+	bottom: 83px;
 	right: auto;
 	width: 2px;
 	z-index: 500;
@@ -120,24 +157,24 @@ label svg {
 	position: absolute;
 	z-index: 30;
 	bottom: 25px;
-	left: 30px;
-	width: 50px;
-	height: 50px;
-	border: 2px solid #aaa;
+	left: 24px;
+	width: 60px;
+	height: 56px;
+	border: 2px solid rgba(255, 255, 255, 0.8);
 	border-left: 0;
-	border-right: 1px solid #aaa;
+	border-right: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 #box2 {
-	left: 80px;
+	left: 85px;
 	border-left: 0;
 	border-right: 0;
 }
 
 #box3 {
-	left: 130px;
+	left: 145px;
 	width: 100%;
-	-webkit-border-image: -webkit-linear-gradient(left, rgba(170, 170, 170, 1) 1%,rgba(170, 170, 170, 0) 65%) 0 0 100% 0/0 0 2px 0 stretch;
+	-webkit-border-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%) 0 0 100% 0/0 0 2px 0 stretch;
 }
 
 #info,
@@ -167,7 +204,7 @@ h1 {
 }
 
 h2 {
-	font-family: "Atlas Grotesk";
+	font-family: "Atlas Grotesk Web";
 	font-size: 60px;
 	line-height: 40px;
 	margin-bottom: 32px;
@@ -183,18 +220,6 @@ h2 {
 	font-size: 60px;
 }
 
-/*h1 svg {
-  stroke-dasharray: 7000;
-  stroke-dashoffset: 7000;
-  animation: dash 5s linear forwards;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}*/
-
 body.woop #info,
 body.woop h1,
 body.woop #next-btn,
@@ -208,7 +233,6 @@ body.woop #box2,
 body.woop #box3,
 body.woop #social {
 	opacity: 0;
-	/*transform: scale(2);*/
 	visibility: hidden;
 	overflow: hidden;
 }
@@ -263,7 +287,6 @@ body.woop #btns {
 	left: 20px;
 	bottom: 20px;
 	right: 0;
-	bottom: 20px;
 	background: url(data:image/gif;base64,R0lGODlhBAAEAIABAGVrcP///yH5BAEAAAEALAAAAAAEAAQAAAIFBBKGy1EAOw==);
 }
 
@@ -284,24 +307,19 @@ body.woop #btns {
 #about p,
 #contact p {
 	color: #f5f5f5;
-	font-family: "Atlas Typewriter";
+	font-family: "Atlas Typewriter Web";
 	font-size: 16px;
 }
 
 #info {
 	position: absolute;
 	bottom: 60px;
-	right: 30px;
-	height: auto;
+	right: 24px;
 	z-index: 100;
 	color: #f5f5f5;
 	text-align: right;
 	width: 400px;
-	color: #a0a5a8;
-}
-
-#info p {
-	font-size: 14px;
+	color: rgba(255, 255, 255, 0.8);
 }
 
 #info p:first-of-type {
@@ -312,7 +330,7 @@ h1 {
 	position: absolute;
 	z-index: 100;
 	top: 36px;
-	left: 28px;
+	left: 22px;
 }
 
 #next-btn,
@@ -344,8 +362,8 @@ h1 {
 
 #social {
 	position: absolute;
-	bottom: 20px;
-	right: 30px;
+	bottom: 21px;
+	right: 24px;
 	z-index: 100;
 }
 
@@ -363,7 +381,7 @@ h1 {
 	position: absolute;
 	right: 30px;
 	top: 0;
-	color: #a0a5a8;
+	color: rgba(255, 255, 255, 0.8);
 	transform-origin: 100% 100%;
 	transform: rotate(-90deg);
 	text-align: right;
@@ -371,31 +389,36 @@ h1 {
 	box-sizing: border-box;
 	z-index: 30;
 	font-size: 14px;
+	font-family: 'Atlas Grotesk Web', Helvetica, Arial, sans-serif;
+}
+
+#btns a {
+	color: rgba(255, 255, 255, 0.8);
 }
 
 #next-btn {
-	bottom: 139px;
-	right: 30px;
+	bottom: 11em;
+	right: 21px;
 }
 
 #prev-btn {
-	bottom: 139px;
+	bottom: 11em;
 	right: 60px;
 }
 
 #random-btn {
-	left: 94px;
-	bottom: 39px;
+	left: 102px;
+	bottom: 43px;
 }
 
 #info-btn {
-	left: 44px;
-	bottom: 39px;
+	left: 42px;
+	bottom: 43px;
 }
 
 #play-btn {
-	left: 68px;
-	bottom: 99px;
+	left: 72px;
+	bottom: 102px;
 }
 
 #video-player {
@@ -416,14 +439,14 @@ body.woop #video-player {
 }
 
 #holder {
-	z-index: 100;
+	z-index: 30;
 	position: absolute;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	background: url(data:image/gif;base64,R0lGODlhBAAEAIABAGVrcP///yH5BAEAAAEALAAAAAAEAAQAAAIFBBKGy1EAOw==);
-	border-width: 10px;
+	border-width: 12px;
 	border-style: solid;
 	border-color: #000;
 	pointer-events: none;
@@ -432,10 +455,10 @@ body.woop #video-player {
 }
 
 body.woop #holder {
-	top: -10px;
-	left: -10px;
-	right: -10px;
-	bottom: -10px;
+	top: -12px;
+	left: -12px;
+	right: -12px;
+	bottom: -12px;
 	opacity: 0;
 }
 
@@ -454,7 +477,6 @@ body.woop #holder {
 
 .vjs-progress-control {
 	display: block !important;
-	left: 0px !important;
 	transform-origin: 0 0;
 	transform: rotate(90deg);
 	height: 2px !important;
@@ -465,8 +487,6 @@ body.woop #holder {
 	bottom: auto !important;
 	visibility: visible !important;
 	opacity: 1 !important;
-	left: 22px !important;
-	top: 75px !important;
 	transition: visibility: 600ms, opacity 600ms !important;
 }
 

@@ -1,25 +1,28 @@
-<!--
-
-TODO:
-
-1. randomise vids
-2. weight newer vids more
-3. fb/twitter img meta sharing
-4. deploying
-5. favicon
-6. about page content
-7. backbone urls - put js in video template, load app, start on selected vid then randomise
-
--->
-
 <!-- @if NODE_ENV == 'DEVELOPMENT' -->
 	<html>
 	<head>
 		<link rel="stylesheet" href="assets/styles/styles.css" />
+		<link rel="stylesheet" href="assets/styles/1507-YATADE.css" />
 		<link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	</head>
 	<body>
+
+	<!--
+
+		TODO:
+
+		1. randomise vids
+		2. weight newer vids more
+		3. fb/twitter img meta sharing
+		4. deploying
+		5. favicon
+		6. about page content
+		7. backbone urls - put js in video template, load app, start on selected vid then randomise
+
+	-->
+
+
 <!-- @endif -->
 
 <!-- @if NODE_ENV == 'PRODUCTION' -->
@@ -92,10 +95,10 @@ TODO:
 		</p>
 
 		<p id="play-btn">
-			<svg id="play" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+			<svg id="play" style="display: none;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 				<path d="M8,5v14l11-7L8,5z"/>
 			</svg>
-			<svg id="pause" style="display: none;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<svg id="pause" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <path d="M6,19h4V5H6V19z M14,5v14h4V5H14z"/>
 </svg>
@@ -168,7 +171,7 @@ TODO:
 		</div>
 
 		<div id="btns">
-			<a id="about-btn" href="#">ABOUT</a> / <a id="contact-btn" href="#">CONTACT</a>
+			<a id="about-btn" href="#">ABOUT</a>&nbsp;&nbsp;&nbsp;&ndash;&nbsp;&nbsp;&nbsp;<a id="contact-btn" href="#">CONTACT</a>
 		</div>
 
 		<div id="box1"></div>
@@ -298,9 +301,13 @@ TODO:
 
 		<script type="text/template" id="video-info-template">
 			<p>NOW PLAYING</p>
-			<p><%= tracktitle %> / <%= artist %></p>
-			<p><%= album %></p>
-			<p><%= label %> / <%= publisher %></p>
+			<p><% if (tracktitle !== "") { %><%= tracktitle %><% } %>
+			<% if (tracktitle !== "" && artist !== "") { %> / <% } %>
+			<% if (artist !== "") { %><%= artist %><% } %></p>
+
+			<p><% if (album !== "") { %><%= album %><% } %></p>
+			
+			<p><% if (label !== "") { %><%= label %><% }%><% if (label !== "" && publisher !== "") { %> / <% }%><% if (publisher !== "") { %><%= publisher %><% }%></p>
 		</script>
 		<script type="text/javascript">
 		$(function() {

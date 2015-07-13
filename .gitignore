@@ -3,3 +3,5 @@ dest
 bower_components
 .vagrant
 craft/plugins
+vagrant
+dev
