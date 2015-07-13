@@ -48,6 +48,7 @@ namespace :deploy do
 			execute "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
 			execute "ln -nfs #{shared_path}/craft/app #{release_path}/craft/app"
 			execute "ln -nfs #{shared_path}/craft/storage #{release_path}/craft/storage"
+			execute "chmod -R 777 #{release_path}/craft/storage"
 		end
 	end
 	after :finished, :symlink

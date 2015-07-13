@@ -5,3 +5,4 @@ bower_components
 craft/plugins
 vagrant
 dev/app/devindex.html
+craft/config/local/
