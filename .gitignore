@@ -1,7 +1,7 @@
 node_modules
-dest
+dist
 bower_components
 .vagrant
 craft/plugins
 vagrant
-dev
+dev/app/devindex.html

@@ -9,19 +9,16 @@
 	<body>
 
 	<!--
-
 		TODO:
-
-		1. randomise vids
-		2. weight newer vids more
-		3. fb/twitter img meta sharing
-		4. deploying
-		5. favicon
-		6. about page content
-		7. backbone urls - put js in video template, load app, start on selected vid then randomise
-
+		1. weight newer vids more
+		2. fb/twitter img metadata for sharing
+		3. Deploy currently requires:
+			- making craft/storage directory writable by PHP
+			- setting config/db/php password
+		4. favicon
+		5. about page content - access as json?
+		6. implement single video urls for sharing
 	-->
-
 
 <!-- @endif -->
 
@@ -191,6 +188,16 @@
   				Routers: {},
   				Views: {}
   			}
+
+  			function shuffleArray(array) {
+			    for (var i = array.length - 1; i > 0; i--) {
+			        var j = Math.floor(Math.random() * (i + 1));
+			        var temp = array[i];
+			        array[i] = array[j];
+			        array[j] = temp;
+			    }
+			    return array;
+			}
 		</script>
 
 		<!-- @if NODE_ENV == 'DEVELOPMENT' -->
@@ -271,6 +278,7 @@
 		},
 		{% endfor %}
 		];
+		shuffleArray(window.JuiceVCR.data);
 		</script>
 		<!-- @endif -->
 
