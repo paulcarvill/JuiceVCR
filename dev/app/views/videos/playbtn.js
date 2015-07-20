@@ -1,9 +1,20 @@
 JuiceVCR.Views.PlayButtonView = Backbone.View.extend({
-	events: {
+    events: {
       "click": "doclick"
     },
 
+    initialize: function(){
+      _.bindAll(this, 'keydown', 'doclick');
+      $(window).on('keydown', this.keydown);
+    },
+
     playing: true,
+
+    keydown: function(event) {
+      if (event.keyCode == 32) { // space bar
+        this.doclick();
+      }
+    },
 
     doclick: function(){
       if(this.playing){

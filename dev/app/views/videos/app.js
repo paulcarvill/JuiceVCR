@@ -1,5 +1,16 @@
 JuiceVCR.Views.AppView = Backbone.View.extend({
 
+	el: 'document',
+	
+	events: {
+      "keydown" : "doclick"
+    },
+
+    doclick: function(){
+    	alert('wooo');
+    	window.play.doclick();
+    },
+
 	currentVideoIndex: 0,
 
 	initialize: function(){
