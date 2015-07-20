@@ -180,6 +180,7 @@ label svg {
 	left: 145px;
 	width: 100%;
 	-webkit-border-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%) 0 0 100% 0/0 0 2px 0 stretch;
+	-moz-border-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%) 0 0 100% 0/0 0 2px 0 stretch;
 }
 
 #info,
@@ -387,6 +388,8 @@ h1 {
 	right: 30px;
 	top: 0;
 	color: rgba(255, 255, 255, 0.8);
+	-webkit-transform-origin: 100% 100%;
+	-webkit-transform: rotate(-90deg);
 	transform-origin: 100% 100%;
 	transform: rotate(-90deg);
 	text-align: right;
