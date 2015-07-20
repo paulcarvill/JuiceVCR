@@ -44,7 +44,6 @@
 								<form method="post" action="" accept-charset="UTF-8">
 								    {{ getCsrfInput() }}
 								    <input type="hidden" name="action" value="contactForm/sendMessage">
-								    <input type="hidden" name="redirect" value="contact/thanks">
 
 								    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}" placeholder="Name" />
 								    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
@@ -52,9 +51,9 @@
 									<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" placeholder="Email" />
 								    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
 								
-									<input name="url" id="url" type="text" placeholder="URL" />
+									<input name="message[url]" id="url" type="text" placeholder="URL" />
 								
-									<textarea name="message" id="message" placeholder="Message" rows="10"></textarea>
+									<textarea name="message[body]" id="message" placeholder="Message" rows="10"></textarea>
 								
 									<label>
 									<input type="submit" />SEND <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="24px" viewBox="0 0 28 24" enable-background="new 0 0 28 24" xml:space="preserve">
