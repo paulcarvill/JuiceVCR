@@ -64,18 +64,43 @@
 				<div class="overlay-table">
 		  			<div class="overlay-table-inner">
 		    			<div style="text-align:left;">
-							<form>
-								<input name="name" type="text" placeholder="Name" />
-								<input name="email" type="text" placeholder="Email" />
-								<input name="url" type="text" placeholder="URL" />
-								<textarea name="message" placeholder="Message" rows="10"></textarea>
-								<label>
-									<input type="submit" />
-									SEND <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="24px" viewBox="0 0 28 24" enable-background="new 0 0 28 24" xml:space="preserve">
+
+	  							{% macro errorList(errors) %}
+								    {% if errors %}
+								        <ul class="errors">
+								            {% for error in errors %}
+								                <li>{{ error }}</li>
+								            {% endfor %}
+								        </ul>
+								    {% endif %}
+								{% endmacro %}
+
+								{% from _self import errorList %}
+
+								<form method="post" action="" accept-charset="UTF-8">
+								    {{ getCsrfInput() }}
+								    <input type="hidden" name="action" value="contactForm/sendMessage">
+								    <input type="hidden" name="redirect" value="contact/thanks">
+
+								    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}" placeholder="Name" />
+								    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+								
+									<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" placeholder="Email" />
+								    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+								
+									<input name="url" id="url" type="text" placeholder="URL" />
+								
+									<textarea name="message" id="message" placeholder="Message" rows="10"></textarea>
+								
+									<label>
+									<input type="submit" />SEND <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="24px" viewBox="0 0 28 24" enable-background="new 0 0 28 24" xml:space="preserve">
 										<path d="M4,13h16.17l-5.58,5.59L16,20l8-8l-8-8l-1.42,1.41L20.17,11H4V13z"/>
 									</svg>
-	  							</label>
-							</form>
+	  								</label>
+
+								    <input type="submit" value="Send">
+								</form>
+
 						</div>
 					</div>
 				</div>
