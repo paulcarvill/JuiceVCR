@@ -514,3 +514,103 @@ body.woop #holder {
 .vjs-default-skin .vjs-slider {
 	background-color: rgba(255, 255, 255, 0.5) !important;
 }
+
+@media (max-width: 600px) {
+
+	html.touch #info,
+	html.touch h1,
+	html.touch #next-btn,
+	html.touch #prev-btn,
+	html.touch #random-btn,
+	html.touch #info-btn,
+	html.touch #play-btn,
+	html.touch #pause-btn,
+	html.touch #box1,
+	html.touch #box2,
+	html.touch #box3,
+	html.touch #social,
+	html.touch #prog-container,
+	html.touch #progress,
+	html.touch #btns {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	body.mobwoop #info,
+	body.mobwoop h1,
+	body.mobwoop #next-btn,
+	body.mobwoop #prev-btn,
+	body.mobwoop #random-btn,
+	body.mobwoop #info-btn,
+	body.mobwoop #play-btn,
+	body.mobwoop #pause-btn,
+	body.mobwoop #box1,
+	body.mobwoop #box2,
+	body.mobwoop #box3,
+	body.mobwoop #social,
+	body.mobwoop #prog-container,
+	body.mobwoop #progress,
+	body.mobwoop #btns {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	h2 {
+		font-size: 24px;
+		right: -13px;
+	}
+
+	.overlay-bg {
+		left: 24px;
+		bottom: 24px;
+	}
+
+	iframe {
+		pointer-events: auto;
+	}
+
+	body #holder {
+		display: none;
+	}
+
+	#btns {
+		right: 8px;
+		top: -8px;
+	}
+
+	#play-btn,
+	#random-btn,
+	#info-btn,
+	#box1,
+	#box2,
+	#box3 {
+		display: none;
+	}
+
+	#info {
+		bottom: 12px;
+		right: 8px;
+		left: 8px;
+		font-size: 12px;
+		width: auto;
+		height: 8em;
+	}
+
+	#social {
+		display: none;
+	}
+
+	#prev-btn {
+		bottom: 8em;
+		right: 48px;
+	}
+
+	#next-btn {
+		right: 8px;
+		bottom: 8em;
+	}
+
+	form {
+		width: 280px;
+	}
+}

@@ -6,6 +6,7 @@ JuiceVCR.Views.AboutView = Backbone.View.extend({
 
 	display: function(){
 		$(this.el).toggleClass('mesh');
+		$('body').toggleClass('mobwoop');
 	},
 
 	doClick: function(){
