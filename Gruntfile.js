@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'public/juicevcr.min.css': ['dev/app/assets/styles/styles.css', 'dev/app/assets/styles/video-js.css']
+          'public/juicevcr.min.css': ['dev/app/assets/styles/styles.css', 'dev/app/assets/styles/video-js.css', 'dev/app/assets/styles/1507-YATADE.css']
         }
       }
     },
@@ -64,7 +64,15 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {src: 'dist/index.html', dest: 'craft/templates/index.html'}
+          {src: 'dist/index.html', dest: 'craft/templates/index.html'},
+          {src: 'dev/app/assets/styles/AtlasGrotesk-Black-Web.eot', dest: 'public/AtlasGrotesk-Black-Web.eot'},
+          {src: 'dev/app/assets/styles/AtlasGrotesk-Black-Web.svg', dest: 'public/AtlasGrotesk-Black-Web.svg'},
+          {src: 'dev/app/assets/styles/AtlasGrotesk-Black-Web.ttf', dest: 'public/AtlasGrotesk-Black-Web.ttf'},
+          {src: 'dev/app/assets/styles/AtlasGrotesk-Black-Web.woff', dest: 'public/AtlasGrotesk-Black-Web.woff'},
+          {src: 'dev/app/assets/styles/AtlasTypewriter-Regular-Web.eot', dest: 'public/AtlasTypewriter-Regular-Web.eot'},
+          {src: 'dev/app/assets/styles/AtlasTypewriter-Regular-Web.svg', dest: 'public/AtlasTypewriter-Regular-Web.svg'},
+          {src: 'dev/app/assets/styles/AtlasTypewriter-Regular-Web.ttf', dest: 'public/AtlasTypewriter-Regular-Web.ttf'},
+          {src: 'dev/app/assets/styles/AtlasTypewriter-Regular-Web.woff', dest: 'public/AtlasTypewriter-Regular-Web.woff'}
           ]
       }
     },

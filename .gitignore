@@ -1,4 +1,8 @@
 node_modules
-dest
+dist
 bower_components
 .vagrant
+craft/plugins
+vagrant
+dev/app/devindex.html
+craft/config/local/
