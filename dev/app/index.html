@@ -80,7 +80,6 @@
 								<form method="post" action="" accept-charset="UTF-8">
 								    {{ getCsrfInput() }}
 								    <input type="hidden" name="action" value="contactForm/sendMessage">
-								    <input type="hidden" name="redirect" value="contact/thanks">
 
 								    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}" placeholder="Name" />
 								    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
