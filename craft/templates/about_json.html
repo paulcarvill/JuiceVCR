@@ -1,0 +1,6 @@
+
+{% header "Content-Type: application/json" %}
+{% set about = craft.entries.section('about').limit(1) %}
+{
+	"aboutText" : "{{ about.first.aboutText }}"
+}
