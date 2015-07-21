@@ -10,7 +10,8 @@
 				<div class="overlay-table">
 		  			<div class="overlay-table-inner">
 		    			<div style="text-align:left;">
-							<p>Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>
+							{% set about = craft.entries.section('about').limit(1) %}
+							<p>{{ about.first.aboutText }}</p>
 						</div>
 					</div>
 				</div>
@@ -219,13 +220,61 @@
 
 		<script type="text/template" id="video-info-template">
 			<p>NOW PLAYING</p>
-			<p><% if (tracktitle !== "") { %><%= tracktitle %><% } %>
-			<% if (tracktitle !== "" && artist !== "") { %> / <% } %>
-			<% if (artist !== "") { %><%= artist %><% } %></p>
-
-			<p><% if (album !== "") { %><%= album %><% } %></p>
+			<p>
+				<% if (tracktitle !== "") { %>
+					<% if (trackLink !== "") { %>
+						<a href="<%= trackLink %>" target="_blank">
+					<% } %>
+					<%= tracktitle %>
+					<% if (trackLink !== "") { %>
+						</a>
+					<% } %>
+				<% } %>
 			
-			<p><% if (label !== "") { %><%= label %><% }%><% if (label !== "" && publisher !== "") { %> / <% }%><% if (publisher !== "") { %><%= publisher %><% }%></p>
+				<% if (tracktitle !== "" && artist !== "") { %>
+				 /
+				<% } %>
+				
+				<% if (artist !== "") { %>
+					<% if (artistLink !== "") { %>
+						<a href="<%= artistLink %>" target="_blank">
+					<% } %>
+					<%= artist %>
+					<% if (artistLink !== "") { %>
+						</a>
+					<% } %>
+				<% } %>
+			</p>
+			<p>
+				<% if (album !== "") { %>
+					<% if (albumLink !== "") { %>
+						<a href="<%= albumLink %>" target="_blank">
+					<% } %>
+					<%= album %>
+					<% if (albumLink !== "") { %>
+						</a>
+					<% } %>
+				<% } %>
+			</p>
+			<p>
+				<% if (label !== "") { %>
+					<% if (labelLink !== "") { %>
+						<a href="<%= labelLink %>" target="_blank">
+					<% } %>
+					<%= label %>
+					<% if (labelLink !== "") { %>
+						</a>
+					<% } %>
+				<% }%>
+
+				<% if (label !== "" && publisher !== "") { %>
+				 / 
+				 <% }%>
+
+				 <% if (publisher !== "") { %>
+				 	<%= publisher %>
+				 <% }%>
+			</p>
 		</script>
 		<script type="text/javascript">
 		$(function() {
