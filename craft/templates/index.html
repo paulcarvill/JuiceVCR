@@ -225,13 +225,16 @@
 		{% for entry in craft.entries.section('videos').limit(null).find() %}
 		{
 			"tracktitle": "{{ entry.title }}",
+			"trackLink": "{{ entry.trackLink }}",
 			"album":      "{{ entry.album }}",
+			"albumLink": "{{ entry.albumLink }}",
 			"artist":     "{{ entry.artist }}",
+			"artistLink": "{{ entry.artistLink }}",
 			"label":      "{{ entry.label }}",
+			"labelLink": "{{ entry.labelLink }}",
 			"publisher":  "{{ entry.publisher }}",
 			"videourl":   "{{ entry.videoUrl }}",
 			"videotype":  "{{ entry.videotype }}",
-			"body" :      "{{ entry.body }}",
 			"tags":       [{% for tag in entry.tags %}
 						"{{tag}}",
 					{% endfor %}],
