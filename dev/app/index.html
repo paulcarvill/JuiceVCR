@@ -85,12 +85,12 @@
 								    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}" placeholder="Name" />
 								    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
 								
-									<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" placeholder="Email" />
+									<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" placeholder="Email (required)" />
 								    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
 								
 									<input name="message[url]" id="url" type="text" placeholder="URL" />
 								
-									<textarea name="message[body]" id="message" placeholder="Message" rows="10"></textarea>
+									<textarea name="message[body]" id="message" placeholder="Message (required)" rows="10"></textarea>
 								
 									<label>
 									<input type="submit" />SEND <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="24px" viewBox="0 0 28 24" enable-background="new 0 0 28 24" xml:space="preserve">
@@ -458,12 +458,27 @@
                         }, 3000)
 			        } else {
 			            // response.error will be an object containing any validation errors that occurred, indexed by field name
-			            // e.g. response.error.fromName => ['From Name is required']
-			            alert('An error occurred. Please try again.');
+						if("fromEmail" in response.error) {
+							$('#fromEmail').css({"color":"red"});
+						} else {
+							$('#fromEmail').css({"color":"#f5f5f5"});
+						}
+						if("message" in response.error) {
+							$('#message').css({"color":"red"});
+						} else {
+							$('#message').css({"color":"#f5f5f5"});
+						}
 			        }
 			    });
 			});
 		});
+
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	    ga('create', 'UA-59221217-1', 'auto');
+	    ga('send', 'pageview');
 		</script>
 
 <!-- @if NODE_ENV == 'DEVELOPMENT' -->
