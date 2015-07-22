@@ -442,15 +442,21 @@
 			$('form').submit(function(ev) {
 			    // Prevent the form from actually submitting
 			    ev.preventDefault();
-			    $('#thanks').fadeIn();
 			    // Get the post data
 			    var data = $(this).serialize();
-
+			    var that = this;
 			    // Send it to the server
 			    $.post('/', data, function(response) {
 			        if (response.success) {
-			        	$(this).reset();
+			        	$(this).fadeOut();
+			        	that.reset();
 			            $('#thanks').fadeIn();
+
+			            window.setInterval(function(){
+			            	$('#thanks').fadeOut();
+			            	$(this).fadeIn();
+			            }, 2000)
+
 			        } else {
 			            // response.error will be an object containing any validation errors that occurred, indexed by field name
 			            // e.g. response.error.fromName => ['From Name is required']
