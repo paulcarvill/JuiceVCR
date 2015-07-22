@@ -448,15 +448,14 @@
 			    // Send it to the server
 			    $.post('/', data, function(response) {
 			        if (response.success) {
-			        	$(this).fadeOut();
-			        	that.reset();
-			            $('#thanks').fadeIn();
+						$(that).hide();
+						that.reset();
+						$('#thanks').show();
 
-			            window.setInterval(function(){
-			            	$('#thanks').fadeOut();
-			            	$(this).fadeIn();
-			            }, 2000)
-
+                        window.setInterval(function(){
+                            $('#thanks').hide();
+                            $('form').show();
+                        }, 3000)
 			        } else {
 			            // response.error will be an object containing any validation errors that occurred, indexed by field name
 			            // e.g. response.error.fromName => ['From Name is required']
