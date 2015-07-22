@@ -30,7 +30,7 @@
 		  			<div class="overlay-table-inner">
 		    			<div style="text-align:left;">
 
-	  							{% macro errorList(errors) %}
+								{% macro errorList(errors) %}
 								    {% if errors %}
 								        <ul class="errors">
 								            {% for error in errors %}
@@ -39,7 +39,9 @@
 								        </ul>
 								    {% endif %}
 								{% endmacro %}
-								
+
+								{% from _self import errorList %}
+
 		    					<p id="thanks" style="display: none">Thanks</p>
 
 								<form method="post" action="" accept-charset="UTF-8">
