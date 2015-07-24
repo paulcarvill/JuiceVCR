@@ -57,10 +57,6 @@ iframe {
 	pointer-events: none;
 }
 
-#about iframe {
-	pointer-events: auto;
-}
-
 #prog-container,
 #progress
  {
@@ -366,8 +362,7 @@ h1 {
 #pause-btn:hover,
 #about-btn:hover,
 #contact-btn:hover,
-#social a:hover
- {
+.social a:hover {
 	color: #fd542f;
 	fill: currentColor;
 	cursor: pointer;
@@ -380,10 +375,18 @@ h1 {
 	z-index: 100;
 }
 
-#social a {
+.social a {
 	margin: 0 12px;
 	color: #a0a5a8;
 	fill: currentColor;
+}
+
+#about .social a {
+	color: #f5f5f5;
+}
+
+#about .social a:hover {
+	color: #fd542f;
 }
 
 #social a:last-of-type {
