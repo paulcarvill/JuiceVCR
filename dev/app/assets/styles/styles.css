@@ -183,7 +183,7 @@ label svg {
 	-moz-border-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%) 0 0 100% 0/0 0 2px 0 stretch;
 	border-image-slice: 0 0 100% 0;
 	border-image-width: 0 0 2px 0;
-	border-image-source: -ms-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%)
+	border-image-source: -ms-linear-gradient(left, rgba(255, 255, 255, 0.8) 1%,rgba(170, 170, 170, 0) 65%);
 	border-image-repeat: stretch;
 
 }
