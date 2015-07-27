@@ -243,6 +243,8 @@
 			}
 		</script>
 
+		
+
 		<script>
 		window.JuiceVCR.data = [
 		{% for entry in craft.entries.section('videos').limit(null).find() %}
@@ -264,8 +266,17 @@
 		},
 		{% endfor %}
 		];
+		</script>
+		
+		
+		<script>
+		if(window.JuiceVCR.data.length >= 30){
+			window.JuiceVCR.recentData = window.JuiceVCR.data.splice(0, 10);
+			shuffleArray(window.JuiceVCR.recentData);
+		}
 		shuffleArray(window.JuiceVCR.data);
 		</script>
+
 		<script src="juicevcr.min.js"></script>
 
 		<script type="text/template" id="video-info-template">
@@ -337,6 +348,7 @@
 			window.play = new JuiceVCR.Views.PlayButtonView( { el : $('#play-btn') });
 			window.info_btn = new JuiceVCR.Views.InfoButtonView( { el : $('#info-btn') });
 			window.playlist = new JuiceVCR.Collections.Playlist();
+			window.recentPlaylist = new JuiceVCR.Collections.Playlist();
 			window.app = new JuiceVCR.Views.AppView();
 
 			$('form').submit(function(ev) {

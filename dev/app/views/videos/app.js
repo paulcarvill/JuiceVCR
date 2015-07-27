@@ -1,23 +1,16 @@
 JuiceVCR.Views.AppView = Backbone.View.extend({
 
-	el: 'document',
-	
-	events: {
-      "keydown" : "doclick"
-    },
-
-    doclick: function(){
-    	alert('wooo');
-    	window.play.doclick();
-    },
-
-	currentVideoIndex: 0,
+	currentVideoIndex: 1,
+	currentRecentVideoIndex: 0,
 
 	initialize: function(){
 		_.bindAll(this, 'playVid', 'skipVid', 'progressUpdate');
 
 		for(var i = 0; i < JuiceVCR.data.length; i++){
 			window.playlist.create(JuiceVCR.data[i]);
+		}
+		for(var i = 0; i < JuiceVCR.recentData.length; i++){
+			window.recentPlaylist.create(JuiceVCR.recentData[i]);
 		}
 		this.playVid();
 	},
@@ -57,11 +50,38 @@ JuiceVCR.Views.AppView = Backbone.View.extend({
 	},
 
 	skipVid: function(){
-		this.currentVideoIndex += 1;
-		if(this.currentVideoIndex >= window.playlist.length){
-			this.currentVideoIndex = 0;
+		// if short list, just play all the videos in random order
+		if(window.JuiceVCR.data.length < 30) {
+			this.currentVideoIndex += 1;
+			if(this.currentVideoIndex >= window.playlist.length){
+				this.currentVideoIndex = 0;
+			}
+			this.vid = window.playlist.at(this.currentVideoIndex);
 		}
-		this.vid = window.playlist.at(this.currentVideoIndex);
+		else {
+			// check if it's time to play a recent video (eveyr 4th video)
+			if (this.currentVideoIndex > 0 && this.currentVideoIndex % 4 === 0) {
+
+				this.vid = window.recentPlaylist.at(this.currentRecentVideoIndex);
+
+				//update current recent video index for next time
+				this.currentRecentVideoIndex += 1;
+				if(this.currentRecentVideoIndex >= 9){
+					this.currentRecentVideoIndex = 0;
+				}
+				this.currentVideoIndex += 1;
+				if(this.currentVideoIndex >= window.playlist.length){
+					this.currentVideoIndex = 0;
+				}
+			} else {
+				this.vid = window.playlist.at(this.currentVideoIndex);
+				this.currentVideoIndex += 1;
+				if(this.currentVideoIndex >= window.playlist.length){
+					this.currentVideoIndex = 0;
+				}
+			}
+		}
+
 
 		this.videoPlayer.src({
 			type: this.vid.get('videotype'),
@@ -70,40 +90,6 @@ JuiceVCR.Views.AppView = Backbone.View.extend({
 		
 		this.infopane = new JuiceVCR.Views.InfoView( { el : $('#info'), model: this.vid.toJSON() });
 	},
-
-	skipVidBack: function(){
-		this.currentVideoIndex -= 1;
-      	if(this.currentVideoIndex === -1){
-      		this.currentVideoIndex = window.playlist.length-1;
-      	}
-      	this.vid = window.playlist.at(this.currentVideoIndex);
-
-		this.videoPlayer.src({
-			type: this.vid.get('videotype'),
-			src: this.vid.get('videourl')
-		});
-
-		this.infopane = new JuiceVCR.Views.InfoView( { el : $('#info'), model: this.vid.toJSON() });
-    },
-
-    playRandom: function(){
-    	var rand = Math.floor(Math.random() * (window.playlist.length - 0)) + 0;
-    	if (rand === this.currentVideoIndex) {
-        	rand += 1;
-      	}
-      	if(rand >= window.playlist.length){
-        	rand = 0;
-      	}		
-      
-      	this.currentVideoIndex = rand;
-      	
-      	this.vid = window.playlist.at(this.currentVideoIndex);
-
-		this.videoPlayer.src({
-			type: this.vid.get('videotype'),
-			src: this.vid.get('videourl')
-		});
-    },
 
 	useractive: function(){
 		$('body').removeClass('woop');
