@@ -106,8 +106,9 @@ textarea {
 	background: none;
 	border: 2px solid #fff;
 	width: 100%;
-	padding: 1em;
+	padding: 0.5em;
 	color: #f5f5f5;
+	font-size: 14px;
 }
 
 input[type="submit"] {
