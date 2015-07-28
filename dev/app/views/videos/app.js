@@ -9,7 +9,7 @@ JuiceVCR.Views.AppView = Backbone.View.extend({
 		for(var i = 0; i < JuiceVCR.data.length; i++){
 			window.playlist.create(JuiceVCR.data[i]);
 		}
-		if(window.JuiceVCR.data.length) {
+		if(window.JuiceVCR.recentData.length) {
 			for(var i = 0; i < JuiceVCR.recentData.length; i++){
 				window.recentPlaylist.create(JuiceVCR.recentData[i]);
 			}
