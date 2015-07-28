@@ -110,6 +110,7 @@ textarea {
 	color: #f5f5f5;
 	font-size: 14px;
 	font-family: "Atlas Typewriter Web";
+	text-transform: uppercase;
 }
 
 input {
@@ -137,21 +138,25 @@ label svg {
 ::-webkit-input-placeholder {
 	color: #f5f5f5;
 	font-family: "Atlas Typewriter Web";
+	text-transform: uppercase;
 }
 
 :-moz-placeholder { /* Firefox 18- */
 	color: #f5f5f5;
 	font-family: "Atlas Typewriter Web";
+	text-transform: uppercase;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
 	color: #f5f5f5;
 	font-family: "Atlas Typewriter Web";
+	text-transform: uppercase;
 }
 
 :-ms-input-placeholder {  
 	color: #f5f5f5;
 	font-family: "Atlas Typewriter Web";
+	text-transform: uppercase;
 }
 
 .closebutton {
