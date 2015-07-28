@@ -27,7 +27,7 @@ JuiceVCR.Views.PlayButtonView = Backbone.View.extend({
         $('#pause', this.$el).toggle();
 
       	window.app.videoPlayer.pause();
-        $('.woop').removeClass('woop');
+        window.app.useractive();
 
       } else {
       	this.playing = true;
@@ -39,6 +39,7 @@ JuiceVCR.Views.PlayButtonView = Backbone.View.extend({
         $('#pause', this.$el).toggle();
         
       	window.app.videoPlayer.play();
+        window.app.userinactive();
       }
     }
 })
