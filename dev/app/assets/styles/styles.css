@@ -29,6 +29,19 @@ html, body, h1, h2, p, div {
 	font-family: Helvetica, arial, sans-serif;
 }
 
+.no-js {
+	z-index: 20;
+    position: absolute;
+    color: #fff;
+    left: 100px;
+    top: 150px;
+    right: 100px;
+}
+
+.js .no-js {
+	display: none;
+}
+
 #info {
 	height: 6em;
 	line-height: 1.5em;
@@ -297,6 +310,13 @@ body.woop #btns {
 
 #about {
 	transform-origin: 0% 100%;
+}
+
+#about.standalone,
+#contact.standalone {
+	visibility: visible;
+	transform: scale(1);
+	opacity: 1;
 }
 
 #about.mesh,

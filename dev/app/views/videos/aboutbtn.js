@@ -3,7 +3,8 @@ JuiceVCR.Views.AboutButtonView = Backbone.View.extend({
       "click": "doclick"
     },
 
-    doclick: function(){
+    doclick: function(e){
+      e.preventDefault();
       window.about.display();
       window.app.videoPlayer.userActive(false);
     }

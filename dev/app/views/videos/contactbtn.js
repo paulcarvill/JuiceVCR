@@ -3,7 +3,8 @@ JuiceVCR.Views.ContactButtonView = Backbone.View.extend({
       "click": "doclick"
     },
 
-    doclick: function(){
+    doclick: function(e){
+      e.preventDefault();
       window.contact.display();
       window.app.videoPlayer.userActive(false);
     }
