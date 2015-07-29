@@ -2,6 +2,5 @@ node_modules
 dist
 bower_components
 .vagrant
-vagrant
 dev/app/devindex.html
 craft/config/local/
