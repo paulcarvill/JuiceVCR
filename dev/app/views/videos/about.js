@@ -2,7 +2,7 @@ JuiceVCR.Views.AboutView = Backbone.View.extend({
 
 	events: {
 		"click a" : "doClick",
-		"click .overlay-bg" : "doClick"
+		"click .overlay-bg" : "doOverlayClick"
 	},
 
 	open: false,
@@ -29,6 +29,12 @@ JuiceVCR.Views.AboutView = Backbone.View.extend({
 	doClick: function(){
 		this.display();
 		window.app.videoPlayer.userActive(true);
+	},
+
+	doOverlayClick: function(event){
+		if(event.target.className == "overlay-bg") {
+			this.doClick();
+		}
 	}
 
 })

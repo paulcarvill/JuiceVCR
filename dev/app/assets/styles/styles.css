@@ -38,10 +38,6 @@ html, body, h1, h2, p, div {
     right: 100px;
 }
 
-.js .no-js {
-	display: none;
-}
-
 #info {
 	height: 6em;
 	line-height: 1.5em;
@@ -561,18 +557,12 @@ body.woop #holder {
 	background-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
 
 	html.touch #info,
 	html.touch h1,
 	html.touch #next-btn,
-	html.touch #info-btn,
-	html.touch #play-btn,
 	html.touch #pause-btn,
-	html.touch #box1,
-	html.touch #box2,
-	html.touch #box3,
-	html.touch #social,
 	html.touch #prog-container,
 	html.touch #progress,
 	html.touch #btns {
@@ -580,21 +570,23 @@ body.woop #holder {
 		opacity: 1;
 	}
 
-	body.mobwoop #info,
-	body.mobwoop h1,
-	body.mobwoop #next-btn,
-	body.mobwoop #info-btn,
-	body.mobwoop #play-btn,
-	body.mobwoop #pause-btn,
-	body.mobwoop #box1,
-	body.mobwoop #box2,
-	body.mobwoop #box3,
-	body.mobwoop #social,
-	body.mobwoop #prog-container,
-	body.mobwoop #progress,
-	body.mobwoop #btns {
+	html.touch body.mobwoop #info,
+	html.touch body.mobwoop h1,
+	html.touch body.mobwoop #next-btn,
+	html.touch body.mobwoop #pause-btn,
+	html.touch body.mobwoop #prog-container,
+	html.touch body.mobwoop #progress,
+	html.touch body.mobwoop #btns {
 		visibility: hidden;
 		opacity: 0;
+	}
+
+	html.touch iframe {
+		pointer-events: auto;
+	}
+
+	html.touch #holder {
+		display: none;
 	}
 
 	h2 {
@@ -605,14 +597,6 @@ body.woop #holder {
 	.overlay-bg {
 		left: 24px;
 		bottom: 24px;
-	}
-
-	iframe {
-		pointer-events: auto;
-	}
-
-	body #holder {
-		display: none;
 	}
 
 	#btns {
