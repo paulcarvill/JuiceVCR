@@ -1,6 +1,7 @@
 JuiceVCR.Views.ContactView = Backbone.View.extend({
 	events: {
-		"click a" : "doClick"
+		"click a" : "doClick",
+		"click .overlay-bg" : "doOverlayClick"
 	},
 
 	open: false,
@@ -24,8 +25,14 @@ JuiceVCR.Views.ContactView = Backbone.View.extend({
 		$('body').toggleClass('mobwoop');
 	},
 
-	doClick: function(){
+	doClick: function(event){
 		this.display();
 		window.app.videoPlayer.userActive(true);
+	},
+
+	doOverlayClick: function(event){
+		if(event.target.className == "overlay-bg") {
+			this.doClick();
+		}
 	}
 })

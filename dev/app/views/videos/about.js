@@ -1,7 +1,8 @@
 JuiceVCR.Views.AboutView = Backbone.View.extend({
 
 	events: {
-		"click a" : "doClick"
+		"click a" : "doClick",
+		"click .overlay-bg" : "doClick"
 	},
 
 	open: false,

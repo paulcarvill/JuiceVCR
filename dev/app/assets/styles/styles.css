@@ -253,6 +253,8 @@ h2 {
 	color: #a0a5a8;
 	transform-origin: 100% 100%;
 	transform: rotate(-90deg);
+	-webkit-transform-origin: 100% 100%;
+	-webkit-transform: rotate(-90deg);
 	text-align: right;
 	box-sizing: border-box;
 	z-index: 30;
