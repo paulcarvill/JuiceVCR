@@ -76,8 +76,8 @@ JuiceVCR.Views.AppView = Backbone.View.extend({
 					this.currentVideoIndex = 0;
 				}
 			} else {
-				this.vid = window.playlist.at(this.currentVideoIndex);
 				this.currentVideoIndex += 1;
+				this.vid = window.playlist.at(this.currentVideoIndex);
 				if(this.currentVideoIndex >= window.playlist.length){
 					this.currentVideoIndex = 0;
 				}
